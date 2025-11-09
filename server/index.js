@@ -1,0 +1,17 @@
+const cors = require("cors")
+const dotenv = require("dotenv")
+dotenv.config()
+const express = require("express")
+const app = express()
+app.use(express.json())
+app.use(cors())
+require("./dbconnection.js")
+
+// app.use("/uploads", express.static("uploads/"))
+const gardenerController=require("./controllers/gardenerControllers.js")
+app.use("/gardener",gardenerController)
+const managerController=require("./controllers/managerController.js")
+app.use("/manager",managerController)
+app.listen(8080, () => {
+    console.log("Server is running on port 8080")
+})

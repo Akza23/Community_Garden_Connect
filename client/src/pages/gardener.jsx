@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useState } from "react";
+import { Link } from "react-router";
 import Navbar from "../components/navbar";
-import axios from "axios";
-import "../style/gardener.css"
+import "../style/gardener.css";
+import instance from "../utils/apiClient";
 function Gardener() {
-    const [data, setData] = useState({ fullName: "", address: "", age: "", gender: "", mobileNo: "", district: "", city: "", emailId: "", password: "", cpassword: "", profilePic: "" })
-    const [error, setError] = useState({ fullName: "", address: "", age: "", gender: "", mobileNo: "", district: "", city: "", emailId: "", password: "", cpassword: "", profilePic: "" })
+    const [data, setData] = useState({ fullName: "", address: "", age: "", gender: "", mobileNo: "", district: "", city: "", skills: "", email: "", password: "", cpassword: "", profilePic: "" })
+    const [error, setError] = useState({ fullName: "", address: "", age: "", gender: "", mobileNo: "", district: "", city: "", skills: "", email: "", password: "", cpassword: "", profilePic: "" })
     function change(e) {
         e.preventDefault()
         setData({ ...data, [e.target.name]: e.target.value })
@@ -14,7 +15,7 @@ function Gardener() {
     }
     function submit(e) {
         e.preventDefault()
-        let localerror = { fullName: "", address: "", age: "", gender: "", mobileNo: "", district: "", city: "", emailId: "", password: "", cpassword: "", profilePic: "" }
+        let localerror = { fullName: "", address: "", age: "", gender: "", mobileNo: "", district: "", city: "", skills: "", email: "", password: "", cpassword: "", profilePic: "" }
         console.log(data)
         if (data.fullName == "") {
             localerror.fullName = "Name is required"
@@ -46,7 +47,7 @@ function Gardener() {
         if (data.mobileNo == "") {
             localerror.mobileNo = "Contact number is required"
         }
-        else if (data.mobileNo.length < 10) {
+        else if (data.mobileNo.length < 10 || data.mobileNo.length > 10) {
             localerror.mobileNo = "Contact number should be 10 digits"
         }
         else {
@@ -64,14 +65,26 @@ function Gardener() {
         else {
             localerror.city = ""
         }
-        if (data.emailId == "") {
-            localerror.emailId = "Email is required"
-        }
-        else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(data.emailId)) {
-            localerror.emailId = "Invalid Email"
+        if (data.city == "") {
+            localerror.city = "City is required"
         }
         else {
-            localerror.emailId = ""
+            localerror.city = ""
+        }
+        if (data.skills == "") {
+            localerror.skills = "Skills is required"
+        }
+        else {
+            localerror.city = ""
+        }
+        if (data.email == "") {
+            localerror.email = "Email is required"
+        }
+        else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(data.email)) {
+            localerror.email = "Invalid Email"
+        }
+        else {
+            localerror.email = ""
         }
         if (data.password == "") {
             localerror.password = "Password is required"
@@ -104,10 +117,7 @@ function Gardener() {
             for (let key in data) {
                 formData.append(key, data[key]);
             }
-            axios.post("http://localhost:8080/sample/register", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data"
-                }
+            instance.post("/gardener/register", formData, {
             })
                 .then((res) => {
                     alert("Registered Successfully");
@@ -124,7 +134,7 @@ function Gardener() {
         <>
             <Navbar />
             <div className="form-img">
-                <img src="https://images.unsplash.com/photo-1495908333425-29a1e0918c5f?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                <img src="https://media.istockphoto.com/id/1268196717/vector/gardening-tools-and-plants-in-the-garden.jpg?s=612x612&w=0&k=20&c=0g9MBn-iYbJHZo51KgIyyz0tXHmXPP2u6ZRJlxnSWaA=" />
                 <div className="container">
                     <form action="" className="form">
                         <h2 id="h4">Registration</h2>
@@ -150,15 +160,34 @@ function Gardener() {
                         <label htmlFor="mobileNo">Contact Number: </label>
                         <input onChange={change} type="number" name="mobileNo" />
                         <p className="text-danger">{error.mobileNo}</p>
-                        <label htmlFor="district">District: </label>
-                        <input onChange={change} type="text" name="district" />
+                        <label htmlFor="district">District:</label>
+                        <select name="district" id="district" onChange={change} value={data.district}>
+                            <option value="">-- Select District --</option>
+                            <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                            <option value="Kollam">Kollam</option>
+                            <option value="Pathanamthitta">Pathanamthitta</option>
+                            <option value="Alappuzha">Alappuzha</option>
+                            <option value="Kottayam">Kottayam</option>
+                            <option value="Idukki">Idukki</option>
+                            <option value="Ernakulam">Ernakulam</option>
+                            <option value="Thrissur">Thrissur</option>
+                            <option value="Palakkad">Palakkad</option>
+                            <option value="Malappuram">Malappuram</option>
+                            <option value="Kozhikode">Kozhikode</option>
+                            <option value="Wayanad">Wayanad</option>
+                            <option value="Kannur">Kannur</option>
+                            <option value="Kasaragod">Kasaragod</option>
+                        </select>
                         <p className="text-danger">{error.district}</p>
                         <label htmlFor="city">City: </label>
                         <input onChange={change} type="text" name="city" />
                         <p className="text-danger">{error.city}</p>
-                        <label htmlFor="emailId">Email: </label>
-                        <input onChange={change} type="email" name="emailId" />
-                        <p className="text-danger">{error.emailId}</p>
+                        <label htmlFor="skills">Skills: </label>
+                        <input onChange={change} type="text" name="skills" />
+                        <p className="text-danger">{error.skills}</p>
+                        <label htmlFor="email">Email: </label>
+                        <input onChange={change} type="email" name="email" />
+                        <p className="text-danger">{error.email}</p>
                         <label htmlFor="password">Password: </label>
                         <input onChange={change} type="password" name="password" />
                         <p className="text-danger">{error.password}</p>
@@ -169,6 +198,9 @@ function Gardener() {
                         <input onChange={upload} type="file" name="profilePic" />
                         <p className="text-danger">{error.profilePic}</p>
                         <button onClick={submit} value="submit" className="btn btn-success">REGISTER</button>
+                        <p className="mt-3">
+                            Already have an account? <Link to="/gardenerlogin">Login</Link>
+                        </p>
                     </form>
                 </div>
             </div>

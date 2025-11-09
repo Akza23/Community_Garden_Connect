@@ -1,24 +1,33 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min"
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Navbar from './components/navbar'
-import Section from "./components/herosection"
-import Index from './pages/index';
+import { Route, Routes } from "react-router"
+import "./App.css"
+import Contact from "./pages/contact"
+import About from "./pages/about"
 import Gardener from "./pages/gardener"
-import {Routes, Route} from 'react-router'
+import GardenerLogin from "./pages/gardenerlogin"
+import Index from "./pages/index"
+import Manager from "./pages/manager"
+import GardenerHome from "./components/gardenerhome"
+import GardenerProfile from "./pages/gardenerprofile"
+import ManagerLogin from "./pages/managerlogin"
 
 function App() {
 	return (
 		<>
-		{/* <Navbar/>
+			{/* <Navbar/>
 		<Section/> */}
-		<Routes>
-		<Route path="/" element={<Index />}/>
-		<Route path="/gardener" element={<Gardener/>}/>
-		</Routes>
+			<Routes>
+				<Route path="/" element={<Index />} />
+				<Route path="/about" element={<About />} />
+				<Route path="/contact" element={<Contact />} />
+				<Route path="/gardener" element={<Gardener />} />
+				<Route path="/gardenerlogin" element={<GardenerLogin />} />
+				<Route path="/gardenerhome" element={<GardenerHome/>}/>
+				<Route path="/gardenerprofile" element={<GardenerProfile/>}/>
+				<Route path="/manager" element={<Manager />} />
+				<Route path="/managerlogin" element={<ManagerLogin/>}/>
+			</Routes>
 		</>
 	)
 }

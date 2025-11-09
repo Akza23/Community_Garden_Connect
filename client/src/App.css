@@ -1,3 +1,5 @@
+/* Navbar */
+
 #item {
 	list-style-type: none;
 	display: flex;
@@ -25,6 +27,8 @@
 	border-radius: 100px;
 	margin-right: 30px;
 }
+
+/* Herosection */
 
 #hero {
 	display: flex;
@@ -57,7 +61,7 @@
 	display: flex;
 }
 
-.button{
+.button {
 	justify-content: center;
 	margin-left: 300px;
 }
@@ -78,10 +82,100 @@
 	display: flex;
 	margin-top: 50px;
 }
-#garden img{
+
+#garden img {
 	border-radius: 12px;
 }
 
-.dropdown-menu{
-	background-color:rgb(240, 255, 248);
+.dropdown-menu {
+	background-color: rgb(240, 255, 248);
+}
+
+/* Footer */
+
+.footer {
+	background-color: #0f1729;
+	color: white;
+	padding: 40px 20px;
+	font-family: Arial, sans-serif;
+}
+
+.footer-container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 40px;
+}
+
+.footer-column {
+	flex: 1 1 250px;
+	min-width: 200px;
+}
+
+.footer-column h4 {
+	font-size: 18px;
+	margin-bottom: 15px;
+}
+
+.footer-column ul {
+	list-style: none;
+	padding: 0;
+}
+
+.footer-column li {
+	margin-bottom: 10px;
+}
+
+.footer-column a {
+	text-decoration: none;
+	color: white;
+	transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+	color: #00bcd4;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid #444;
+	margin: 30px 0;
+}
+
+.footer-bottom {
+	text-align: center;
+}
+
+.footer-socials {
+	margin-bottom: 15px;
+}
+
+.footer-socials a {
+	color: rgb(22, 162, 66);
+	margin: 0 8px;
+	font-size: 18px;
+	display: inline-block;
+	background: rgba(255, 255, 255, 0.05);
+	padding: 10px;
+	border-radius: 50%;
+	transition: background 0.3s ease, color 0.3s ease;
+}
+
+.footer-socials a:hover {
+	background: #00bcd4;
+	color: #0f1729;
+}
+
+.footer-bottom p {
+	font-size: 14px;
+	color: white;
+}
+
+.text-info {
+	color: #00bcd4;
+	text-decoration: none;
+}
+
+.text-info:hover {
+	text-decoration: underline;
 }

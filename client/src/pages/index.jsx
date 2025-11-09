@@ -1,6 +1,8 @@
 import { useState } from "react"
 import Navbar from "../components/navbar"
+import Footer from "../components/footer"
 import Section from "../components/herosection"
+
 function Index() {
     const herodata={
         title: "🍃 WELCOME TO ",
@@ -48,6 +50,7 @@ function Index() {
                     })}
                 </div>
             </div>
+            <Footer/>
         </>
     )
 }

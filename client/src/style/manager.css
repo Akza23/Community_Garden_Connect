@@ -1,0 +1,78 @@
+/* registration */
+
+.manager-form {
+    padding: 20px 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 30px 150px;
+}
+
+.manager-form input {
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.manager-form label {
+    font-weight: bold;
+}
+
+.manager-form select {
+    padding: 6px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#radio {
+    font-weight: normal;
+    /* margin-bottom: 5px; */
+}
+
+.manager-form button {
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    justify-content: center;
+}
+
+.manager-form select:focus {
+    border-color: black;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    outline: none;
+}
+
+/* login */
+
+.manager-login{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 30px;
+    margin: 220px 550px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+
+.manager-login label{
+    font-weight: bold;
+}
+
+.manager-login input{
+    padding: 4px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
