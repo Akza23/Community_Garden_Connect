@@ -50,4 +50,45 @@ router.post("/login", async (req, res) => {
     }
 })
 
+router.get("/profile", async (req, res) => {
+    const token = req.headers.authorization.slice(7)
+    const decoded = jwt.verify(token, process.env.JWT_TOKEN)
+    const manager = await Manager.findOne({ "_id": decoded.id })
+    res.send({
+        message: "Manager Profile", manager
+    })
+})
+
+router.put("/updateprofile", upload.single("profilePic"), async (req, res) => {
+    try {
+        const token = req.headers.authorization.slice(7)
+        const decoded = jwt.verify(token, process.env.JWT_TOKEN)
+        const { fullName, address, contact, gender, district, city, pincode, email } = req.body
+        await Manager.findByIdAndUpdate(decoded.id, {
+            fullName,
+            address,
+            contact,
+            gender,
+            district,
+            city,
+            pincode,
+            email,
+            profilePic: req.file && req.file?.filename
+        })
+        res.send({
+            message: "Updated Successfully"
+        })
+    }
+    catch (e) {
+        res.status(403).send({
+            message: "Not Authorised"
+        })
+    }
+})
+
+router.get("/viewgardener", async (req, res) => {
+    const token = req.headers.authorization.slice(7)
+    const decoded = jwt.verify(token, process.env.JWT_TOKEN)
+})
+
 module.exports = router

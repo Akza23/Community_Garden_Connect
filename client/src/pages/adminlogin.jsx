@@ -1,11 +1,10 @@
-import { AxiosError } from "axios";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router";
-import "../style/gardener.css";
-import instance from "../utils/apiClient";
+import { AxiosError } from 'axios'
+import React, { useState } from 'react'
+import { Link } from 'react-router'
+import "../style/admin.css"
+import instance from '../utils/apiClient'
 
-function GardenerLogin() {
-    const Navigate = useNavigate()
+function AdminLogin() {
     const [data, setData] = useState({ email: "", password: "" })
     const [error, setError] = useState({ email: "", password: "" })
     function change(e) {
@@ -15,30 +14,22 @@ function GardenerLogin() {
     async function show(e) {
         e.preventDefault()
         let lerror = { email: "", password: "" }
-        console.log(data)
-        if (data.email == "") {
-            lerror.email = "Username is required"
+        if (!data.email) {
+            lerror.email = "Email is required"
         }
-        else {
-            lerror.email = ""
-        }
-        if (data.password == "") {
+        if (!data.password) {
             lerror.password = "Password is required"
         }
-        else {
-            lerror.password = ""
-        }
         setError({ ...lerror })
-        if (Object.values(lerror).every(function (item) {
+        if (Object.values(lerror).every((item) => {
             return item === ""
         })) {
-            // alert("Logged in Successfully")
             try {
-                let response = await instance.post("/gardener/login", data)
+                let response = await instance.post("/admin/login", data)
                 const token = response.data.token
                 localStorage.setItem("TOKEN", token)
-                alert("Login Successfully")
-                window.location.href = ("/gardenerhome")
+                alert("Logged in Successfully")
+                window.location.href = ("/adminhome")
             }
             catch (e) {
                 if (e instanceof AxiosError) {
@@ -51,7 +42,7 @@ function GardenerLogin() {
                 }
                 else {
                     alert("Login Failed")
-                    console.log(e);
+                    console.log(e)
                 }
             }
         }
@@ -61,7 +52,7 @@ function GardenerLogin() {
     }
     return (
         <>
-            <div className=" login-form">
+            <div className="admin-container">
                 <div className="home-icon">
                     <Link to="/">
                         <svg
@@ -81,8 +72,8 @@ function GardenerLogin() {
                         </svg>
                     </Link>
                 </div>
-                <img src="https://www.shutterstock.com/image-vector/hand-tree-logo-design-care-600nw-2417343115.jpg" alt="" />
-                <form action="" className="login">
+                <img src="https://img.freepik.com/premium-vector/simple-logo-design-community-outreach-program-design-simple-logo-community-outreach-program-supporting-local-small-businesses_538213-67962.jpg?semt=ais_incoming&w=740&q=80" alt="" />
+                <form className="admin-login">
                     <h2>Login Page</h2>
                     <label htmlFor="email">Username:</label>
                     <input onChange={change} type="email" name="email" />
@@ -90,11 +81,13 @@ function GardenerLogin() {
                     <label htmlFor="password">Password:</label>
                     <input onChange={change} type="password" name="password" />
                     <p className="text-danger">{error.password}</p>
-                    <button onClick={show} className="btn btn-success" name="login">LOGIN</button>
+                    <button onClick={show} className="btn btn-success" name="login">
+                        LOGIN
+                    </button>
                 </form>
-            </div >
+            </div>
         </>
     )
 }
 
-export default GardenerLogin;
+export default AdminLogin

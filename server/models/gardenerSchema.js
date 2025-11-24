@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 const gardenerSchema = mongoose.Schema({
     fullName: { type: String, required: true },
     address: { type: String, required: true },
-    age: { type: String, required: true },
+    dob: { type: String, required: true },
     gender: { type: String, required: true },
     mobileNo: { type: String, required: true },
     district: { type: String, required: true },

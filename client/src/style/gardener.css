@@ -1,4 +1,4 @@
-/* registration */
+/* --------------------REGISTRATION ---------------------- */
 
 .form {
     padding: 20px 30px;
@@ -8,6 +8,7 @@
     flex-direction: column;
     display: flex;
     margin: 30px 150px;
+    width: 450px;
 }
 
 .form label {
@@ -54,7 +55,7 @@
     justify-content: center;
 }
 
-#h4 {
+.form h2 {
     text-align: center;
     font-weight: bolder;
 }
@@ -65,22 +66,22 @@
 
 .form-img img {
     height: 600px;
-    margin-top: 40px;
+    margin: 40px 30px;
     position: sticky;
     top: 20px;
 }
 
-.form a{
+.form a {
     color: #2e7d32;
     text-decoration: none;
 }
 
-.form a:hover{
+.form a:hover {
     color: #2e7d32;
     text-decoration: underline;
 }
 
-/* login */
+/* ---------------------- LOGIN --------------------- */
 
 .login-form {
     display: flex;
@@ -174,5 +175,327 @@
     .login-form img {
         width: 100px;
         height: 100px;
+    }
+}
+
+/* ---------------------- HOME PAGE NAVBAR ------------------------- */
+
+.gardener-navbar {
+    padding: 20px 20px;
+}
+
+.gardener-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gardener-container h2 {
+    font-family: cursive;
+    font-weight: bolder;
+    margin: 0;
+}
+
+#gardener-item {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1050px;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.gardener-left-links {
+    display: flex;
+    gap: 40px;
+}
+
+.gardener-right-links {
+    display: flex;
+    gap: 25px;
+}
+
+.gardener-nav-item a {
+    text-decoration: none;
+    color: rgb(29, 154, 52);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.gardener-nav-item a:hover {
+    color: darkgreen;
+}
+
+/* --------------------------- GARDENER HOME PAGE ---------------------- */
+
+.gardener-home-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 80px;
+    min-height: 90vh;
+    background-color: #f7fff7;
+}
+
+.gardener-home-left {
+    width: 55%;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #1b3d1f;
+    margin-bottom: 20px;
+    font-family: Georgia, serif;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.start-btn {
+    background-color: #1b7f2c;
+    padding: 12px 28px;
+    border: none;
+    font-size: 18px;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.start-btn:hover {
+    background-color: #145d21;
+}
+
+.gardener-home-right {
+    width: 40%;
+}
+
+.gardener-img {
+    width: 100%;
+    border-radius: 40px;
+}
+
+/* ------------------------ GARDENER PROFILE -------------------------- */
+
+.gardener-profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #e6f7ec, #f9fff9);
+    min-height: 100vh;
+}
+
+.profile-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 700px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 50px;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header {
+    background: linear-gradient(135deg, #3ba55d, #67c587);
+    color: white;
+    padding: 40px 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.profile-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.profile-role {
+    font-size: 16px;
+    font-style: italic;
+    color: #e6ffe6;
+}
+
+.profile-details {
+    padding: 25px 40px;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+}
+
+.detail-item {
+    background: #f8fdf9;
+    border-left: 4px solid #3ba55d;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease;
+}
+
+.detail-item:hover {
+    background: #daf6da;
+}
+
+.update-btn {
+    background: linear-gradient(135deg, #ff9f43, #ff7f50);
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 127, 80, 0.4);
+}
+
+.update-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.update-btn:hover {
+    background: linear-gradient(135deg, #ff8c2f, #ff6f3c);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .profile-header {
+        padding: 30px 10px;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-details {
+        padding: 20px;
+    }
+}
+
+/* ----------------- PROFILE UPDATE ---------------------- */
+
+.gardener-profile-update-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #e6f7ec, #f9fff9);
+    min-height: 100vh;
+    padding: 60px 20px;
+}
+
+.profile-update-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    padding: 40px 50px;
+    width: 95%;
+    max-width: 850px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.profile-update-card h2 {
+    color: #2e8b52;
+    margin-bottom: 30px;
+    font-size: 26px;
+}
+
+.profile-update-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #3ba55d;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+.update-button {
+    margin-top: 25px;
+    background: linear-gradient(135deg, #ff9f43, #ff7f50);
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 12px 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 127, 80, 0.4);
+}
+
+.update-button:hover {
+    background: linear-gradient(135deg, #ff8533, #ff6b2c);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .profile-update-card {
+        padding: 25px 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
     }
 }

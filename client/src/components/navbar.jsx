@@ -13,7 +13,7 @@ function Navbar() {
                         <ul className='dropdown-menu'>
                             <li><Link to="/gardenerlogin" className='dropdown-item'>Gardener</Link></li>
                             <li><Link to="/managerlogin" className='dropdown-item'>Manager</Link></li>
-                            <li><Link to="" className='dropdown-item'>Organization</Link></li>
+                            <li><Link to="/adminlogin" className='dropdown-item'>Admin</Link></li>
                             <li><hr className="dropdown-divider" /></li>
                         </ul>
                     </li>
@@ -22,7 +22,6 @@ function Navbar() {
                         <ul className='dropdown-menu'>
                             <li><Link to="/gardener" className='dropdown-item'>Gardener</Link></li>
                             <li><Link to="/manager" className='dropdown-item'>Manager</Link></li>
-                            <li><Link to="" className='dropdown-item'>Organization</Link></li>
                             <li><hr className="dropdown-divider" /></li>
                         </ul>
                     </li>

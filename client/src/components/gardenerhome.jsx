@@ -1,13 +1,48 @@
-import React from 'react'
-import GardenerNavbar from './gardenernavbar'
+import { useEffect, useState } from 'react';
+import instance from '../utils/apiClient';
+import Footer from './footer';
+import GardenerNavbar from './gardenernavbar';
 
 function GardenerHome() {
+    const [gardener, setGardener] = useState(null);
+
+    async function getGardener() {
+        try {
+            const response = await instance.get("/gardener/profile");
+            setGardener(response.data.gardener);
+        } catch (error) {
+            console.log("Error fetching gardener:", error);
+        }
+    }
+    useEffect(() => {
+        getGardener();
+    }, []);
     return (
         <>
-        <div>
-            <GardenerNavbar/>
-            <img src="https://media.istockphoto.com/id/964395046/photo/woman-planting-flowers-in-backyard-garden-flowerbed.jpg?s=612x612&w=0&k=20&c=YjosoAJkTr2noM_OpaOQwtm-11UR7VDjnDkxnrDA2rM=" alt="" />
-        </div>
+            <div>
+                <GardenerNavbar />
+                <div className="gardener-home-container">
+                    {/* LEFT SECTION */}
+                    <div className="gardener-home-left">
+                        <h1 className="title">
+                            Welcome {gardener?.fullName ? gardener.fullName : "Gardener"} 🌿
+                        </h1>
+                        <p className="subtitle">
+                            Manage your garden, track activities, and connect with your garden community.
+                        </p>
+                        <button className="start-btn">Go to Dashboard</button>
+                    </div>
+                    {/* RIGHT IMAGE */}
+                    <div className="gardener-home-right">
+                        <img
+                            src="/images/gardener-home.jpg"
+                            alt="gardener"
+                            className="gardener-img"
+                        />
+                    </div>
+                </div>
+            </div>
+            <Footer />
         </>
     )
 }

@@ -1,4 +1,4 @@
-/* registration */
+/* ------------------REGISTRATION ------------------------------------ */
 
 .manager-form {
     padding: 20px 30px;
@@ -7,7 +7,8 @@
     flex-direction: column;
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 30px 150px;
+    margin: 30px 70px;
+    width: 450px;
 }
 
 .manager-form input {
@@ -54,25 +55,450 @@
     outline: none;
 }
 
-/* login */
+.manager-img {
+    display: flex;
+}
 
-.manager-login{
+.manager-img img {
+    height: 600px;
+    margin: 40px 70px;
+    position: sticky;
+    top: 20px;
+}
+
+.manager-img h2 {
+    text-align: center;
+    font-weight: bolder;
+}
+
+/* -----------------------LOGIN ------------------------- */
+
+.manager-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+    position: relative;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.manager-container img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.manager-login {
+    width: 90%;
+    max-width: 350px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 30px 25px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    padding: 20px 30px;
-    margin: 220px 550px;
-    border: 1px solid #ccc;
-    border-radius: 12px;
+    backdrop-filter: blur(10px);
 }
 
-.manager-login label{
+.manager-login h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    color: #2e7d32;
+}
+
+.manager-login label {
+    font-weight: 600;
+    font-size: 15px;
+    color: #333;
+}
+
+.manager-login input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.manager-login input:focus {
+    border-color: #2e7d32;
+}
+
+.home-icon {
+    position: absolute;
+    top: 50px;
+    right: 70px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.home-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .manager-login {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .manager-login h2 {
+        font-size: 20px;
+    }
+
+    .manager-login input,
+    .manager-login button {
+        font-size: 14px;
+    }
+
+    .manager-container img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* ---------------------- MANAGER NAVBAR ---------------------------- */
+
+.manager-navbar {
+    padding: 20px 20px;
+}
+
+.manager-navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.manager-container h2 {
+    font-family: cursive;
+    font-weight: bolder;
+    margin: 0;
+}
+
+#manager-item {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1050px;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.manager-left-links {
+    display: flex;
+    gap: 40px;
+}
+
+.manager-right-links {
+    display: flex;
+    gap: 25px;
+}
+
+.manager-nav-item a {
+    text-decoration: none;
+    color: rgb(29, 154, 52);
     font-weight: bold;
+    transition: color 0.3s;
 }
 
-.manager-login input{
-    padding: 4px;
-    margin-top: 5px;
+.manager-nav-item a:hover {
+    color: darkgreen;
+}
+
+/* -------------------MANAGER HOME ------------------------- */
+
+.manager-home {
+    padding: 40px;
+    font-family: Arial;
+}
+
+#manager-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.manager-hero-img {
+    width: 55%;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.manager-hero-text {
+    width: 45%;
+}
+
+.manager-hero-text h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: #1a4a23;
+}
+
+.manager-hero-text p {
+    font-size: 20px;
+    margin: 20px 0;
+    color: #333;
+    line-height: 30px;
+}
+
+.manager-btn {
+    background: #1e6d2e;
+    color: white;
+    padding: 12px 28px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.manager-btn:hover {
+    background: #155322;
+}
+
+.manager-options {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.manager-box {
+    background: #ffffff;
+    width: 260px;
+    padding: 25px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    transition: 0.2s ease;
+}
+
+.manager-box:hover {
+    transform: translateY(-6px);
+}
+
+.manager-box img {
+    width: 90px;
+    height: 90px;
     margin-bottom: 15px;
+}
+
+.manager-box h3 {
+    font-size: 22px;
+    color: #1b4d23;
+}
+
+/* ------------------------ MANAGER PROFILE ------------------------ */
+
+.manager-profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #e6f7ec, #f9fff9);
+    min-height: 100vh;
+}
+
+.manager-profile-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    width: 90%;
+    max-width: 700px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 50px;
+}
+
+.manager-profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.manager-profile-header {
+    background: linear-gradient(135deg, #3ba55d, #67c587);
+    color: white;
+    padding: 40px 20px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.manager-profile-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    margin-bottom: 10px;
+}
+
+.manager-profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px 0 5px;
+}
+
+.manager-profile-role {
+    font-size: 16px;
+    font-style: italic;
+    color: #e6ffe6;
+}
+
+.manager-profile-details {
+    padding: 25px 40px;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+}
+
+.manager-detail-item {
+    background: #f8fdf9;
+    border-left: 4px solid #3ba55d;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s ease;
+}
+
+.manager-detail-item:hover {
+    background: #daf6da;
+}
+
+.manager-update-btn {
+    background: linear-gradient(135deg, #ff9f43, #ff7f50);
+    border: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 127, 80, 0.4);
+}
+
+.manager-update-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.manager-update-btn:hover {
+    background: linear-gradient(135deg, #ff8c2f, #ff6f3c);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .manager-profile-header {
+        padding: 30px 10px;
+    }
+
+    .manager-profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .manager-profile-details {
+        padding: 20px;
+    }
+}
+
+/* ---------------------- PROFILE EDIT ---------------------- */
+
+.manager-profile-edit {
+    min-height: 670px;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 0px;
+    background: linear-gradient(to bottom right, #daf7e4, #eafaea);
+}
+
+.manager-profile-form {
+    width: 50%;
+    max-width: 800px;
+    background: white;
+    padding: 40px 50px;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    height: 550px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+}
+
+.manager-profile-form h2 {
+    text-align: center;
+    color: #1f7a41;
+    margin-bottom: 30px;
+    font-size: 26px;
+}
+
+.form-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 22px;
+}
+
+.form-row div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.manager-profile-form input,
+.manager-profile-form select {
+    padding: 12px;
+    height: 45px;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s;
+}
+
+.file-box {
+    margin-top: 0px;
+}
+
+.manager-profile-form input:focus,
+.manager-profile-form select:focus {
+    border-color: #1f7a41;
+    box-shadow: 0 0 5px rgba(31, 122, 65, 0.4);
+}
+
+.manager-profile-form button {
+    display: block;
+    margin: 30px auto 0 auto;
+    background: linear-gradient(to right, #f29459, #ff7b2e);
+    border: none;
+    margin-bottom: 0px;
+    padding: 10px 30px;
+    margin-top: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.manager-profile-form button:hover {
+    transform: scale(1.05);
 }

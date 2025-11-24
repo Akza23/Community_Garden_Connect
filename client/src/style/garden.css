@@ -1,0 +1,323 @@
+/* -------------------------ADD GARDEN --------------------------- */
+
+.add-garden-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    background: linear-gradient(135deg, #d6f5d6, #f0fff0);
+    padding: 40px 20px;
+}
+
+.add-garden-form-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px 40px;
+    width: 80%;
+    max-width: 900px;
+    transition: transform 0.3s ease;
+}
+
+.add-garden-form-card:hover {
+    transform: translateY(-5px);
+}
+
+.form-title {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    color: #2e7d32;
+    margin-bottom: 25px;
+    font-weight: bolder;
+}
+
+.add-garden-form {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.image-upload-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.upload-box {
+    border: 2px dashed #4caf50;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 300px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #4caf50;
+    background-color: #f9fff9;
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.upload-box:hover {
+    background-color: #ecffec;
+    border-color: #2e7d32;
+}
+
+.preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.form-fields-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-fields-section label {
+    font-weight: bold;
+}
+
+.form-fields-section input,
+.form-fields-section textarea,
+.form-fields-section select {
+    padding: 10px;
+    border: 1px solid #c8e6c9;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.form-fields-section input:focus,
+.form-fields-section textarea:focus,
+.form-fields-section select:focus {
+    border-color: #66bb6a;
+}
+
+.add-btn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-btn:hover {
+    background-color: #1a8920;
+}
+
+/* ------------------ GARDEN VIEW -------------------------- */
+
+.manager-garden-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.manager-garden-container h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    color: #1b3d1f;
+    margin-bottom: 35px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.manager-garden-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    justify-items: center;
+}
+
+.manager-garden-view {
+    width: 400px;
+    height: 520px;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 18px 22px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.manager-garden-view:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+}
+
+.manager-garden-view img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.manager-garden-view strong {
+    color: #0f5825;
+    margin-top: 6px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.manager-garden-view span {
+    color: #444;
+    font-size: 15px;
+    margin-left: 4px;
+    display: block;
+}
+
+.card-buttons {
+    margin-top: auto;
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.card-buttons .edit-btn {
+    background: #ffce3a;
+    border: none;
+    padding: 7px 18px;
+    font-size: 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.card-buttons .edit-btn a {
+    color: white;
+    text-decoration: none;
+}
+
+.card-buttons .delete-btn {
+    background: #dc3545;
+    border: none;
+    padding: 7px 18px;
+    font-size: 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+}
+
+.card-buttons button:hover {
+    opacity: 0.85;
+}
+
+/* ------------------------ EDIT GARDEN ---------------------- */
+
+.edit-garden-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background: #f6fdf8;
+}
+
+.edit-garden-card {
+    width: 900px;
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.edit-title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #145c2b;
+}
+
+.edit-form {
+    display: flex;
+    gap: 30px;
+}
+
+.edit-image-section {
+    flex: 1;
+    margin-top: 100px;
+}
+
+.image-box {
+    width: 100%;
+    height: 250px;
+    background: #f1f1f1;
+    border-radius: 12px;
+    border: 2px dashed #60a86e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.preview-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.upload-text {
+    font-size: 15px;
+    color: #60a86e;
+}
+
+.edit-fields {
+    flex: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.edit-fields label {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.edit-fields input,
+.edit-fields textarea,
+.edit-fields select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #c7c7c7;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.edit-fields textarea {
+    height: 100px;
+    resize: none;
+}
+
+.garden-edit-btn {
+    margin-top: 20px;
+    background: #1c7c40;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.garden-edit-btn:hover {
+    background: #166634;
+}

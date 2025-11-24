@@ -8,7 +8,6 @@
     gap: 40px;
 }
 
-/* Left Section */
 .contact-left {
     flex: 1;
     min-width: 350px;
@@ -37,7 +36,6 @@
     margin-right: 10px;
 }
 
-/* Right Section – Map */
 .contact-right iframe {
     width: 450px;
     height: 500px;

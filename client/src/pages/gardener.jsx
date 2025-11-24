@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Navbar from "../components/navbar";
 import "../style/gardener.css";
 import instance from "../utils/apiClient";
 function Gardener() {
-    const [data, setData] = useState({ fullName: "", address: "", age: "", gender: "", mobileNo: "", district: "", city: "", skills: "", email: "", password: "", cpassword: "", profilePic: "" })
-    const [error, setError] = useState({ fullName: "", address: "", age: "", gender: "", mobileNo: "", district: "", city: "", skills: "", email: "", password: "", cpassword: "", profilePic: "" })
+    const Navigate = useNavigate()
+    const [data, setData] = useState({ fullName: "", address: "", dob: "", gender: "", mobileNo: "", district: "", city: "", skills: "", email: "", password: "", cpassword: "", profilePic: "" })
+    const [error, setError] = useState({ fullName: "", address: "", dob: "", gender: "", mobileNo: "", district: "", city: "", skills: "", email: "", password: "", cpassword: "", profilePic: "" })
     function change(e) {
         e.preventDefault()
         setData({ ...data, [e.target.name]: e.target.value })
@@ -13,9 +14,9 @@ function Gardener() {
     function upload(e) {
         setData({ ...data, profilePic: e.target.files[0] });
     }
-    function submit(e) {
+    async function submit(e) {
         e.preventDefault()
-        let localerror = { fullName: "", address: "", age: "", gender: "", mobileNo: "", district: "", city: "", skills: "", email: "", password: "", cpassword: "", profilePic: "" }
+        let localerror = { fullName: "", address: "", dob: "", gender: "", mobileNo: "", district: "", city: "", skills: "", email: "", password: "", cpassword: "", profilePic: "" }
         console.log(data)
         if (data.fullName == "") {
             localerror.fullName = "Name is required"
@@ -29,14 +30,11 @@ function Gardener() {
         else {
             localerror.address = ""
         }
-        if (data.age == "") {
-            localerror.age = "Age is required"
-        }
-        else if (data.age <= 0 || data.age >= 99) {
-            localerror.age = "Age should be between 1 and 99"
+        if (data.dob == "") {
+            localerror.dob = "Date of birth is required"
         }
         else {
-            localerror.age = ""
+            localerror.dob = ""
         }
         if (data.gender == "") {
             localerror.gender = "Gender is required"
@@ -113,21 +111,30 @@ function Gardener() {
         console.log(Object.values(error))
         setError({ ...localerror })
         if (Object.values(localerror).every((item) => item === "")) {
-            const formData = new FormData();
-            for (let key in data) {
-                formData.append(key, data[key]);
+            try {
+                const formData = new FormData()
+                formData.append("fullName", data.fullName)
+                formData.append("address", data.address)
+                formData.append("dob", data.dob)
+                formData.append("gender", data.gender)
+                formData.append("mobileNo", data.mobileNo)
+                formData.append("district", data.district)
+                formData.append("city", data.city)
+                formData.append("skills", data.skills)
+                formData.append("email", data.email)
+                formData.append("password", data.password)
+                formData.append("profilePic", data.profilePic)
+                const response = await instance.post("/gardener/register", formData)
+                alert("Registered Successfully")
+                Navigate("/gardenerlogin")
             }
-            instance.post("/gardener/register", formData, {
-            })
-                .then((res) => {
-                    alert("Registered Successfully");
-                    console.log(res.data);
-                })
-                .catch((err) => {
-                    console.error("Error submitting form:", err);
-                });
-        } else {
-            alert("Please fill the form to register");
+            catch (e) {
+                console.error(e)
+                alert(e.response?.data?.message || "Registration Error");
+            }
+        }
+        else {
+            alert("Please fill the form to register")
         }
     }
     return (
@@ -137,23 +144,23 @@ function Gardener() {
                 <img src="https://media.istockphoto.com/id/1268196717/vector/gardening-tools-and-plants-in-the-garden.jpg?s=612x612&w=0&k=20&c=0g9MBn-iYbJHZo51KgIyyz0tXHmXPP2u6ZRJlxnSWaA=" />
                 <div className="container">
                     <form action="" className="form">
-                        <h2 id="h4">Registration</h2>
+                        <h2>Registration</h2>
                         <label htmlFor="fullName">Full Name: </label>
                         <input onChange={change} type="text" name="fullName" />
                         <p className="text-danger">{error.fullName}</p>
                         <label htmlFor="address">Address: </label>
                         <input onChange={change} type="text" name="address" />
                         <p className="text-danger">{error.address}</p>
-                        <label htmlFor="age">Age: </label>
-                        <input onChange={change} type="number" name="age" />
-                        <p className="text-danger">{error.age}</p>
+                        <label htmlFor="dob">Date of Birth: </label>
+                        <input onChange={change} type="date" name="dob" />
+                        <p className="text-danger">{error.dob}</p>
                         <label htmlFor="gender">Gender: </label>
                         <div id="radio" className="d-flex gap-2">
-                            <input onChange={change} type="radio" name="gender" value="female" />
+                            <input onChange={change} type="radio" name="gender" value="Female" />
                             <label htmlFor="female">Female</label>
-                            <input onChange={change} type="radio" name="gender" value="male" />
+                            <input onChange={change} type="radio" name="gender" value="Male" />
                             <label htmlFor="male">Male</label>
-                            <input onChange={change} type="radio" name="gender" value="other" />
+                            <input onChange={change} type="radio" name="gender" value="Other" />
                             <label htmlFor="male">Other</label>
                             <p className="text-danger">{error.gender}</p>
                         </div>

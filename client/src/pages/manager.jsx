@@ -131,8 +131,9 @@ function Manager() {
             <Navbar />
             <div className="manager-img">
                 <img src="https://img.freepik.com/premium-vector/man-is-mowing-pond-with-flowers-trees-vector-flat-design_1261583-2949.jpg?semt=ais_hybrid&w=740&q=80" alt="" />
-                <div className="manager-container">
+                <div className="manager">
                     <form action="" className="manager-form">
+                        <h2>Registration</h2>
                         <label htmlFor="fullName">Full Name: </label>
                         <input type="text" name="fullName" onChange={change} />
                         <p className="text-danger">{error.fullName}</p>
@@ -144,11 +145,11 @@ function Manager() {
                         <p className="text-danger">{error.contact}</p>
                         <label htmlFor="gender ">Gender: </label>
                         <div id="radio" className="d-flex gap-2">
-                            <input type="radio" name="gender" value="female" onChange={change} />
+                            <input type="radio" name="gender" value="Female" onChange={change} />
                             <label htmlFor="female">Female</label>
-                            <input type="radio" name="gender" value="male" onChange={change} />
+                            <input type="radio" name="gender" value="Male" onChange={change} />
                             <label htmlFor="male">Male</label>
-                            <input type="radio" name="gender" value="other" onChange={change} />
+                            <input type="radio" name="gender" value="Other" onChange={change} />
                             <label htmlFor="other">Other</label>
                             <p className="text-danger">{error.gender}</p>
                         </div>
