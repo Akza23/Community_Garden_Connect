@@ -1,0 +1,117 @@
+/* ---------------------- ADD TASK ----------------------------- */
+
+.add-task-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background: #f3faf3;
+    /* Soft green background */
+    min-height: 100vh;
+}
+
+.add-task {
+    background: #ffffff;
+    padding: 30px 35px;
+    width: 450px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.add-task label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2a6f37;
+}
+
+.add-task select,
+.add-task textarea,
+.add-task input {
+    padding: 10px;
+    border: 1px solid #b6d8b9;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.2s ease;
+}
+
+.add-task select:focus,
+.add-task textarea:focus,
+.add-task input:focus {
+    border-color: #2a9d48;
+}
+
+.add-task textarea {
+    resize: vertical;
+    height: 70px;
+}
+
+.add-task button {
+    background: #2a9d48;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.add-task button:hover {
+    background: #1e7b38;
+    transform: translateY(-2px);
+}
+
+/* ------------------------------ VIEW TASK ----------------------------------------- */
+
+.task-table {
+    width: 90%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.task-table th,
+.task-table td {
+    padding: 14px 16px;
+    text-align: center;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.task-thead th {
+    background: #1e6d2e;
+    color: white;
+    font-size: 16px;
+}
+
+.task-tbody tr:nth-child(even) {
+    background: #f3f8f4;
+}
+
+.task-tbody tr:hover {
+    background: #dff2e1;
+    transition: 0.3s;
+    cursor: pointer;
+}

@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import AdminNavbar from '../components/adminnavbar'
-import instance from '../utils/apiClient'
 import "../style/admin.css"
+import instance from '../utils/apiClient'
 
 function AdminViewManager() {
     const [details, setDetails] = useState([])
+    const [refresh, setRefresh] = useState(false)
     async function managerData() {
         const response = await instance.get("/admin/viewmanager")
         setDetails(response.data.manager)
     }
     useEffect(() => {
         managerData()
-    }, [])
+    }, [refresh])
+    async function activate(managerid) {
+        await instance.patch("/admin/activate", { managerid })
+        setRefresh(!refresh)
+        alert("Manager activated successfully")
+    }
+    async function deactivate(managerid) {
+        await instance.patch("/admin/deactivate", { managerid })
+        setRefresh(!refresh)
+        alert("Manager deactivated successfully")
+    }
     return (
         <>
             <AdminNavbar />
@@ -46,10 +57,22 @@ function AdminViewManager() {
                             <td>{item.pincode}</td>
                             <td>{item.email}</td>
                             <td>
-                                <button className='btn btn-outline-info'>Activate</button>
+                                {item.Activated === true ? (
+                                    <span className="status-badge activated">
+                                        ✔ Activated
+                                    </span>
+                                ) : (
+                                    <button onClick={() => { activate(item._id) }} className='btn btn-outline-primary'>Activate</button>
+                                )}
                             </td>
                             <td>
-                                <button className='btn btn-outline-warning'>Deactivate</button>
+                                {item.Activated === false ? (
+                                    <span className="status-badge deactivated">
+                                        ✖ Deactivated
+                                    </span>
+                                ) : (
+                                    <button onClick={() => { deactivate(item._id) }} className='btn btn-outline-secondary'>Deactivate</button>
+                                )}
                             </td>
                         </tr>
                     ))}

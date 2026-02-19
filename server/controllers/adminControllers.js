@@ -42,4 +42,20 @@ router.get("/viewgardens", adminVerify, async (req, res) => {
     })
 })
 
+router.patch("/activate", adminVerify, async (req, res) => {
+    const managerid = req.body.managerid
+    const manager = await Manager.findByIdAndUpdate(managerid, { Activated: true })
+    res.send({
+        message: "Manager Activated", manager
+    })
+})
+
+router.patch("/deactivate", adminVerify, async (req, res) => {
+    const managerid = req.body.managerid
+    const manager = await Manager.findByIdAndUpdate(managerid, { Activated: false })
+    res.send({
+        message: "Manager Rejected", manager
+    })
+})
+
 module.exports = router

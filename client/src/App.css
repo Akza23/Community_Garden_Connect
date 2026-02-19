@@ -1,60 +1,72 @@
-/* Navbar */
+/* -------------------------- NAVBAR ------------------------- */
 
 .navbar {
-    padding: 15px 20px;
+	padding: 15px 20px;
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 #h2 {
-    font-family: cursive;
-    font-weight: bolder;
-    margin: 0;
+	font-family: cursive;
+	font-weight: bolder;
+	margin-left: 0;
 }
 
 #item {
     list-style-type: none;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 35px;
+    gap: 40px;
     margin: 0;
     padding: 0;
 }
 
 .nav-item a {
-    text-decoration: none;
-    color: rgb(29, 154, 52);
-    font-weight: bold;
-    transition: color 0.3s;
+	text-decoration: none;
+	color: rgb(29, 154, 52);
+	font-weight: bold;
+	transition: color 0.3s;
 }
 
 .nav-item a:hover {
-    color: darkgreen;
+	color: darkgreen;
 }
 
 .dropdown-menu {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-top: 8px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	margin-top: 8px;
 }
 
 .dropdown-item {
-    color: rgb(29, 154, 52);
-    font-weight: 500;
+	color: rgb(29, 154, 52);
+	font-weight: 500;
 }
 
 .dropdown-item:hover {
-    background-color: #eafbea;
-    color: darkgreen;
+	background-color: #eafbea;
+	color: darkgreen;
 }
 
+@media (max-width: 992px) {
+    #h2 {
+        margin-left: 0;
+    }
+}
 
-/* --------------------------- Herosection ------------------------------------------ */
+@media (max-width: 600px) {
+    #item {
+        gap: 15px;
+    }
+}
+
+/* --------------------------- HEROSECTION ------------------------------------------ */
 
 .img {
 	width: 900px;
@@ -120,7 +132,7 @@
 	border-radius: 12px;
 }
 
-/* ----------------------- Footer ---------------------------------- */
+/* ----------------------- FOOTER ---------------------------------- */
 
 .footer {
 	background-color: #0f1729;

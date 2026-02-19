@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import ManagerNavbar from "../components/managernavbar";
 import "../style/garden.css";
 import instance from "../utils/apiClient";
-import ManagerNavbar from "../components/managernavbar";
 
 function AddGarden() {
     const Navigate = useNavigate()
@@ -78,57 +78,57 @@ function AddGarden() {
     }
     return (
         <>
-        <ManagerNavbar/>
-        <div className="add-garden-container">
-            <div className="add-garden-form-card">
-                <h2 className="form-title">🌼 Add a New Garden</h2>
-                <form className="add-garden-form">
-                    <div className="image-upload-section">
-                        <label htmlFor="imageUpload" className="upload-box">
-                            {preview ? (
-                                <img src={preview} alt="preview" className="preview-image" />
-                            ) : (
-                                <span>Click to upload image</span>
-                            )}
-                        </label>
-                        <input
-                            id="imageUpload"
-                            type="file"
-                            name="image"
-                            accept="image/*"
-                            onChange={upload}
-                            hidden
-                        />
-                        <p className="text-danger">{error.image}</p>
-                    </div>
-                    <div className="form-fields-section">
-                        <label>Garden Name</label>
-                        <input type="text" name="plotName" onChange={change} placeholder="Enter Garden Name" />
-                        <p className="text-danger">{error.plotName}</p>
-                        <label>Location</label>
-                        <input type="text" name="location" onChange={change} placeholder="Enter Location" />
-                        <p className="text-danger">{error.location}</p>
-                        <label>Description</label>
-                        <textarea name="description" onChange={change} placeholder="Enter a short description"></textarea>
-                        <p className="text-danger">{error.description}</p>
-                        <label>Garden Type</label>
-                        <select name="gardenType" onChange={change}>
-                            <option value="">-- Select Garden Type --</option>
-                            <option value="community">Community Garden</option>
-                            <option value="rooftop">Rooftop Garden</option>
-                            <option value="organic">Organic Garden</option>
-                            <option value="herbal">Herbal Garden</option>
-                            <option value="school/college">School/College Garden</option>
-                            <option value="balcony/terrace">Balcony/Terrace Garden</option>
-                            <option value="vegetable">Vegetable Garden</option>
-                            <option value="fruit">Fruit Garden</option>
-                        </select>
-                        <p className="text-danger">{error.gardenType}</p>
-                        <button onClick={add} type="submit" className="add-btn">ADD GARDEN</button>
-                    </div>
-                </form>
+            <ManagerNavbar />
+            <div className="add-garden-container">
+                <div className="add-garden-form-card">
+                    <h2 className="form-title">🌼 Add a New Garden</h2>
+                    <form className="add-garden-form">
+                        <div className="image-upload-section">
+                            <label htmlFor="imageUpload" className="upload-box">
+                                {preview ? (
+                                    <img src={preview} alt="preview" className="preview-image" />
+                                ) : (
+                                    <span>Click to upload image</span>
+                                )}
+                            </label>
+                            <input
+                                id="imageUpload"
+                                type="file"
+                                name="image"
+                                accept="image/*"
+                                onChange={upload}
+                                hidden
+                            />
+                            <p className="text-danger">{error.image}</p>
+                        </div>
+                        <div className="form-fields-section">
+                            <label>Garden Name</label>
+                            <input type="text" name="plotName" onChange={change} placeholder="Enter Garden Name" />
+                            <p className="text-danger">{error.plotName}</p>
+                            <label>Location</label>
+                            <input type="text" name="location" onChange={change} placeholder="Enter Location" />
+                            <p className="text-danger">{error.location}</p>
+                            <label>Description</label>
+                            <textarea name="description" onChange={change} placeholder="Enter a short description"></textarea>
+                            <p className="text-danger">{error.description}</p>
+                            <label>Garden Type</label>
+                            <select name="gardenType" onChange={change}>
+                                <option value="">-- Select Garden Type --</option>
+                                <option value="Community Garden">Community Garden</option>
+                                <option value="Rooftop Garden">Rooftop Garden</option>
+                                <option value="Organic Garden">Organic Garden</option>
+                                <option value="Herbal Garden">Herbal Garden</option>
+                                <option value="School/College Garden">School/College Garden</option>
+                                <option value="Balcony/Terrace Garden">Balcony/Terrace Garden</option>
+                                <option value="Vegetable Garden">Vegetable Garden</option>
+                                <option value="Fruit Garden">Fruit Garden</option>
+                            </select>
+                            <p className="text-danger">{error.gardenType}</p>
+                            <button onClick={add} type="submit" className="add-btn">ADD GARDEN</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
         </>
     );
 }

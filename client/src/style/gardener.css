@@ -156,6 +156,11 @@
     transform: scale(1.1);
 }
 
+.login a {
+    text-align: center;
+    margin-top: 10px;
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
     .login {
@@ -181,7 +186,7 @@
 /* ---------------------- HOME PAGE NAVBAR ------------------------- */
 
 .gardener-navbar {
-    padding: 20px 20px;
+    padding: 15px 20px;
 }
 
 .gardener-container {
@@ -497,5 +502,442 @@
 
     .form-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ---------------------------------- GARDEN VIEW -------------------------- */
+
+.garden-gardener {
+    padding: 30px 50px;
+    background-color: #f5faf6;
+    min-height: 100vh;
+}
+
+.garden-gardener h1 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 34px;
+    font-weight: 700;
+    color: #1b4332;
+}
+
+.garden-gardener-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.garden-gardener-list {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 420px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.garden-gardener-list:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.garden-gardener-list img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 12px;
+}
+
+.garden-gardener-list strong {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d6a4f;
+    margin-top: 6px;
+}
+
+.garden-gardener button {
+    background: none;
+    border: none;
+    padding: 0;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+}
+
+.garden-chat-btn {
+    margin-top: auto;
+    align-self: center;
+    padding: 9px 22px;
+    border-radius: 999px;
+    background: #25D366;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    gap: 6px;
+    box-shadow: 0 6px 15px rgba(139, 94, 52, 0.35);
+    transition: all 0.3s ease;
+}
+
+.garden-chat-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+/* ------------------------------------------ TASK VIEW ---------------------------------- */
+
+.gardener-task-table {
+    width: 90%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-family: "Poppins", sans-serif;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+    animation: fadeIn 0.7s ease-in forwards;
+}
+
+.gardener-task-thead th {
+    background: #2f8f46;
+    color: #ffffff;
+    padding: 15px 16px;
+    font-size: 15px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.gardener-task-tbody td {
+    padding: 14px 16px;
+    text-align: center;
+    font-size: 14.5px;
+    color: #333;
+    word-wrap: break-word;
+}
+
+.gardener-task-tbody tr:nth-child(even) {
+    background-color: #f3f9f4;
+}
+
+.gardener-task-tbody tr:hover {
+    background-color: #e1f2e4;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+
+.gardener-task-tbody td:nth-child(4),
+.gardener-task-tbody td:nth-child(5) {
+    color: #1e6d2e;
+    font-weight: 500;
+}
+
+.task-status-select {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #1e6d2e;
+    font-size: 14px;
+    background-color: #f3f9f4;
+    cursor: pointer;
+}
+
+.task-status-select:focus {
+    outline: none;
+    border-color: #2f8f46;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ------------------------------------ CHAT ---------------------------------------- */
+
+.chat-container {
+    display: flex;
+    height: calc(100vh - 70px);
+    background-color: #cee3f7;
+}
+
+.manager-list {
+    width: 220px;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.manager-button {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    text-align: left;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background-color: #ffffff;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.manager-button:hover {
+    background-color: #d8f7e8;
+}
+
+.chat-focus {
+    background-color: #e1fbed;
+    border: 1px solid #bfe5d0;
+    box-shadow: inset 3px 0 0 #7ac7a1;
+    font-weight: 500;
+}
+
+.chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.chat-messages {
+    flex: 1;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px;
+    overflow-y: auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background-color: #ffffff;
+    border-top: 1px solid #e6e6e6;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 24px;
+    border: 1px solid #979b97;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.chat-input-area input:focus {
+    border-color: #7ac7a1;
+    box-shadow: 0 0 0 3px rgba(122, 199, 161, 0.2);
+}
+
+.chat-input-area button {
+    padding: 10px 22px;
+    border-radius: 20px;
+    border: none;
+    background-color: #4caf84;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.15s ease;
+}
+
+.chat-input-area button:hover {
+    background-color: #43a374;
+}
+
+.chat-input-area button:active {
+    transform: scale(0.96);
+}
+
+/* COMMON CHAT BUBBLE */
+.chat-bubble {
+    max-width: 65%;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+/* RIGHT SIDE — GARDENER SENT */
+.my-chat {
+    margin-left: auto;
+    /* pushes to right */
+    background-color: #dcf8c6;
+    /* WhatsApp green */
+    color: #000;
+    border-bottom-right-radius: 4px;
+}
+
+/* LEFT SIDE — MANAGER RECEIVED */
+.their-chat {
+    margin-right: auto;
+    /* stays left */
+    background-color: #e8f0fe;
+    /* soft blue */
+    color: #000;
+    border-bottom-left-radius: 4px;
+}
+
+/* MESSAGE TEXT */
+.chat-bubble p {
+    margin: 0;
+}
+
+/* -------------------------------- VIEW EVENT ------------------------------- */
+
+.gardener-event {
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f1f8e9, #e8f5e9);
+}
+
+.gardener-event h1 {
+    text-align: center;
+    font-size: 30px;
+    color: #2e7d32;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.gardener-event-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.gardener-event-list {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.gardener-event-list:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.18);
+}
+
+.gardener-event-list img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.gardener-event-list p {
+    margin: 8px 15px;
+    font-size: 14px;
+    color: #444;
+}
+
+.gardener-event-list p strong {
+    color: #2e7d32;
+    margin-right: 6px;
+}
+
+.gardener-event-list p:last-child {
+    background: #f1f8e9;
+    padding: 10px 15px;
+    margin-top: auto;
+    font-weight: 500;
+}
+
+.gardener-event-list .btn-outline-primary {
+    margin: 15px;
+    border-radius: 25px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.gardener-event-list .btn-outline-primary:hover {
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.gardener-event-list .btn-outline-primary:active {
+    transform: scale(0.98);
+}
+
+.gardener-event-list .btn-outline-primary {
+    align-self: center;
+}
+
+/* Sonner Toast Styling */
+
+[data-sonner-toast] {
+    border-radius: 14px !important;
+    padding: 14px 18px !important;
+    font-size: 14px !important;
+    font-weight: 500;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+    animation: toastSlide 0.4s ease;
+}
+
+[data-sonner-toast]:hover {
+    transform: scale(1.02);
+    transition: 0.2s;
+}
+
+/* Success Toast */
+[data-sonner-toast][data-type="success"] {
+    background: linear-gradient(135deg, #43a047, #2e7d32) !important;
+    color: #ffffff !important;
+}
+
+/* Error Toast */
+[data-sonner-toast][data-type="error"] {
+    background: linear-gradient(135deg, #e53935, #c62828) !important;
+    color: #ffffff !important;
+}
+
+/* Toast Animation */
+@keyframes toastSlide {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .gardener-event h1 {
+        font-size: 24px;
+    }
+
+    .gardener-event-list img {
+        height: 160px;
     }
 }

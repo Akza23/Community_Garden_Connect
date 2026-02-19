@@ -6,6 +6,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 require("./dbconnection.js")
+const socket = require("./services/socketservices.js")
 
 app.use("/uploads", express.static("uploads/"))
 const gardenerController = require("./controllers/gardenerControllers.js")
@@ -16,6 +17,10 @@ const gardenController = require("./controllers/gardenControllers.js")
 app.use("/garden", gardenController)
 const adminController = require("./controllers/adminControllers.js")
 app.use("/admin", adminController)
+const taskController = require("./controllers/taskControllers.js")
+app.use("/task", taskController)
+const eventController=require("./controllers/eventControllers.js")
+app.use("/event",eventController)
 
 app.listen(8080, () => {
     console.log("Server is running on port 8080")

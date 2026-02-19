@@ -10,7 +10,8 @@ const gardenerSchema = mongoose.Schema({
     skills: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    profilePic: { type: String }
+    profilePic: { type: String },
+    token: { type: String }
 })
 
 const Gardener = mongoose.model("gardener", gardenerSchema)

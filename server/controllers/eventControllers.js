@@ -2,32 +2,36 @@ const express = require("express")
 const router = express.Router()
 const jwt = require("jsonwebtoken")
 const upload = require("../services/imageservices")
-const Garden = require("../models/gardenSchema")
+const Event = require("../models/eventSchema")
 
 router.post("/add", upload.single("image"), async (req, res) => {
-    const { plotName, description, location, gardenType } = req.body
+    const { eventName, eventCategory, description, location, eventDate, eventTime } = req.body
     const token = req.headers.authorization.slice(7)
     const decoded = jwt.verify(token, process.env.JWT_TOKEN)
-    const newGarden = new Garden({
+    const newEvent = new Event({
         managerId: decoded.id,
-        plotName,
+        eventName,
+        eventCategory,
         description,
         location,
-        gardenType,
+        eventDate,
+        eventTime,
         image: req.file?.filename && req.file.filename
     })
-    await newGarden.save()
+    await newEvent.save()
     res.send({
-        message: "Garden added succesfully", newGarden
+        message: "Event added succesfully", newEvent
     })
 })
 
 router.get("/view", async (req, res) => {
     const token = req.headers.authorization.slice(7)
     const decoded = jwt.verify(token, process.env.JWT_TOKEN)
-    const garden = await Garden.find({ "managerId": decoded.id }).populate("managerId")
-    if (garden) {
-        res.send(garden)
+    const event = await Event.find({ "managerId": decoded.id }).populate("managerId")
+    if (event) {
+        res.send({
+            message: "Event view", event
+        })
     }
     else {
         res.status(404).send({
@@ -41,38 +45,24 @@ router.put("/edit/:id", upload.single("image"), async (req, res) => {
         const token = req.headers.authorization.slice(7)
         const decoded = jwt.verify(token, process.env.JWT_TOKEN)
         const id = req.params.id
-        const { plotName, location, description, gardenType } = req.body
-        await Garden.findByIdAndUpdate(id, {
-            plotName,
-            location,
+        const { eventName, eventCategory, description, location, eventDate, eventTime } = req.body
+        await Event.findByIdAndUpdate(id, {
+            eventName,
+            eventCategory,
             description,
-            gardenType,
+            location,
+            eventDate,
+            eventTime,
             image: req.file && req.file?.filename
         })
         res.send({
-            message: "Garden Update Successfully"
+            message: "Event Updated Successfully"
         })
     }
     catch (e) {
-        console.log(e);
+        console.log(e)
         res.status(403).send({
             message: "Not Authorized"
-        })
-    }
-})
-
-router.delete("/delete/:id", async (req, res) => {
-    const token = req.headers.authorization.slice(7)
-    const decoded = jwt.verify(token, process.env.JWT_TOKEN)
-    if (decoded.id) {
-        const garden = await Garden.deleteOne({ _id: req.params.id })
-        res.send({
-            message: "Deleted Successfully"
-        })
-    }
-    else {
-        res.status(404).send({
-            message: "Garden not deleted"
         })
     }
 })

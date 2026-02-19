@@ -28,7 +28,7 @@ function ManagerLogin() {
                 const token = response.data.token;
                 localStorage.setItem("TOKEN", token);
                 alert("Logged in Successfully");
-                window.location.href=("/managerhome")
+                window.location.href = ("/managerhome")
             } catch (e) {
                 if (e instanceof AxiosError) {
                     if (e.response?.data) {
@@ -79,6 +79,7 @@ function ManagerLogin() {
                 <button onClick={show} className="btn btn-success" name="login">
                     LOGIN
                 </button>
+                <Link to="/managerforgotpass">Forgot Password</Link>
             </form>
         </div>
     );

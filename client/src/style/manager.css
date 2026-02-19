@@ -171,7 +171,7 @@
 /* ---------------------- MANAGER NAVBAR ---------------------------- */
 
 .manager-navbar {
-    padding: 20px 20px;
+    padding: 15px 20px;
 }
 
 .manager-navbar-container {
@@ -501,4 +501,185 @@
 
 .manager-profile-form button:hover {
     transform: scale(1.05);
+}
+
+/* --------------------------------- GARDENER VIEW --------------------------- */
+
+.manager-gardener {
+    padding: 30px;
+    width: 100%;
+}
+
+.manager-gardener h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2d2d2d;
+    font-weight: bold;
+    color: #1e6d2e;
+}
+
+.manager-gardener-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.manager-gardener-list {
+    width: 300px;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease-in-out;
+}
+
+.manager-gardener-list:hover {
+    transform: translateY(-5px);
+    background-color: #cfecd9;
+}
+
+.manager-gardener-list img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.manager-gardener-view {
+    padding: 15px;
+    animation: fadeInUp 0.45s ease;
+}
+
+.manager-gardener-view p {
+    margin: 6px 0;
+    font-size: 15px;
+    color: #333;
+    line-height: 25px;
+}
+
+.manager-gardener-view strong {
+    color: #000;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------------------------------------- CHAT -------------------------------------- */
+
+/* MAIN LAYOUT */
+.manager-chat-container {
+    display: flex;
+    height: calc(100vh - 70px);
+    background-color: #f4f6f8;
+}
+
+/* LEFT LIST */
+.manager-list-container {
+    width: 260px;
+    background: #ffffff;
+    border-right: 1px solid #e0e0e0;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.manager-button {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    border: none;
+    border-radius: 6px;
+    background: #f3f3f3;
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px;
+}
+
+.manager-button:hover {
+    background: #e8e8e8;
+}
+
+/* FOCUS (SLIGHT GREEN) */
+.manager-chat-focus {
+    background: #dff5e1;
+    font-weight: 600;
+    border-left: 4px solid #4caf50;
+}
+
+/* CHAT AREA */
+.manager-chat-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* MESSAGE LIST */
+.manager-chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #eef1f5;
+}
+
+/* MESSAGE BUBBLE */
+.manager-chat {
+    max-width: 65%;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+    background: #ffffff;
+    font-size: 14px;
+    word-wrap: break-word;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.manager-chat.right {
+    margin-left: auto;
+    background: #dcf8c6;
+    border-bottom-right-radius: 4px;
+}
+
+/* INPUT AREA */
+.manager-chat-input-area {
+    display: flex;
+    padding: 10px;
+    background: #ffffff;
+    border-top: 1px solid #e0e0e0;
+}
+
+.manager-chat-input-area input {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+.manager-chat-input-area input:focus {
+    border-color: #4caf50;
+}
+
+/* SEND BUTTON */
+.manager-chat-input-area button {
+    margin-left: 10px;
+    padding: 0 22px;
+    border-radius: 20px;
+    border: none;
+    background: #4caf50;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.manager-chat-input-area button:hover {
+    background: #43a047;
 }

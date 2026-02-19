@@ -9,9 +9,10 @@ const managerSchema = mongoose.Schema({
     pincode: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     profilePic: { type: String },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    Activated: { type: Boolean }
 })
 
-const Manager=mongoose.model("manager",managerSchema)
+const Manager = mongoose.model("manager", managerSchema)
 
-module.exports=Manager
+module.exports = Manager

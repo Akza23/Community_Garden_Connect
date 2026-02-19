@@ -91,6 +91,7 @@ function GardenerLogin() {
                     <input onChange={change} type="password" name="password" />
                     <p className="text-danger">{error.password}</p>
                     <button onClick={show} className="btn btn-success" name="login">LOGIN</button>
+                    <Link to="/gardenerforgotpass">Forgot Password</Link>
                 </form>
             </div >
         </>
