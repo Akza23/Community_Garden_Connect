@@ -269,3 +269,148 @@
         font-size: 24px;
     }
 }
+
+/* ------------------------------- EDIT --------------------------------- */
+
+/* Main Container */
+.edit-event-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e6f4ea, #f4fbf6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* Card */
+.edit-event-card {
+    width: 100%;
+    max-width: 950px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    padding: 35px;
+    transition: 0.3s ease;
+}
+
+/* Title */
+.event-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    color: #2f5d50;
+    margin-bottom: 25px;
+}
+
+/* Form Layout */
+.event-form {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+/* Image Section */
+.event-image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-upload-box {
+    width: 260px;
+    height: 260px;
+    border: 2px dashed #81c784;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3s;
+    background: #f9fdfb;
+}
+
+.event-upload-box:hover {
+    background: #e8f5e9;
+    border-color: #4caf50;
+}
+
+.preview-upload-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Fields Section */
+.event-fields {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+.event-fields label {
+    font-weight: 500;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    color: #2f5d50;
+}
+
+/* Inputs */
+.event-fields input,
+.event-fields select,
+.event-fields textarea {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #c8e6c9;
+    font-size: 14px;
+    transition: 0.3s;
+    outline: none;
+}
+
+/* Focus Effect */
+.event-fields input:focus,
+.event-fields select:focus,
+.event-fields textarea:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Textarea */
+.event-fields textarea {
+    resize: none;
+    height: 80px;
+}
+
+/* Button */
+.event-edit-btn {
+    margin-top: 25px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.event-edit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .event-form {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .event-upload-box {
+        width: 100%;
+        height: 220px;
+    }
+}

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import ManagerNavbar from '../components/managernavbar'
+import "../style/event.css"
 import instance from '../utils/apiClient'
 
 function EditEvent() {
-    const [details, setDetails] = useState([])
+    const [details, setDetails] = useState({})
     const [preview, setPreview] = useState(null)
     const Navigate = useNavigate()
     const { id } = useParams()
@@ -17,9 +18,11 @@ function EditEvent() {
     useEffect(() => {
         getDetails()
     }, [])
+
     function change(e) {
         setDetails({ ...details, [e.target.name]: e.target.value })
     }
+
     function upload(e) {
         const file = e.target.files[0]
         setDetails({ ...details, image: file })

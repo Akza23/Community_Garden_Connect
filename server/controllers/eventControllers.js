@@ -40,6 +40,11 @@ router.get("/view", async (req, res) => {
     }
 })
 
+router.get("/view/:id",async(res,req)=>{
+    const token=re.headers.authorization.slice(7)
+    
+})
+
 router.put("/edit/:id", upload.single("image"), async (req, res) => {
     try {
         const token = req.headers.authorization.slice(7)
@@ -63,6 +68,22 @@ router.put("/edit/:id", upload.single("image"), async (req, res) => {
         console.log(e)
         res.status(403).send({
             message: "Not Authorized"
+        })
+    }
+})
+
+router.delete("/delete/:id", async (req, res) => {
+    const token = req.headers.authorization.slice(7)
+    const decoded = jwt.verify(token, process.env.JWT_TOKEN)
+    if (decoded.id) {
+        const event = await Event.deleteOne({ _id: req.params.id })
+        res.send({
+            message: "Deleted Successfully"
+        })
+    }
+    else {
+        res.status(404).send({
+            message: "Event not deleted"
         })
     }
 })

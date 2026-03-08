@@ -34,7 +34,7 @@ router.post("/login", async (req, res) => {
     if (!manager) {
         res.status(404).send({
             message: "Invalid Email"
-        })
+        }) 
     }
     else {
         if (!manager.Activated) {

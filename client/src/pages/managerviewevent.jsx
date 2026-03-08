@@ -5,13 +5,25 @@ import instance from '../utils/apiClient'
 
 function ManagerViewEvent() {
     const [details, setDetails] = useState([])
+    const [count, setCount] = useState(0)
     async function eventData() {
         const response = await instance.get("/event/view")
         setDetails(response.data.event)
     }
     useEffect(() => {
         eventData()
-    }, [])
+    }, [count])
+
+    async function remove(id) {
+        try {
+            let response = await instance.delete("/event/delete/" + id)
+            alert("Deleted Successfully")
+            setCount(count + 1)
+        }
+        catch {
+            alert("Deleted Unsuccessfully")
+        }
+    }
     return (
         <>
             <ManagerNavbar />
@@ -28,7 +40,7 @@ function ManagerViewEvent() {
                             <p><strong>Date & Time: </strong>{item.eventDate}, {item.eventTime}</p>
                             <div className='edit-delete-button'>
                                 <button className='btn btn-warning'><Link to={"/editevent/" + item._id}>EDIT</Link></button>
-                                <button className='btn btn-danger'>DELETE</button>
+                                <button className='btn btn-danger' onClick={() => remove(item._id)}>DELETE</button>
                             </div>
                         </div>
                     ))}

@@ -14,6 +14,7 @@ function ManagerViewGarden() {
     useEffect(() => {
         gardenData()
     }, [count])
+
     async function remove(id) {
         try {
             let response = await instance.delete("/garden/delete/" + id)
