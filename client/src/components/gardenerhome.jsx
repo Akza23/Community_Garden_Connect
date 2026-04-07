@@ -35,7 +35,7 @@ function GardenerHome() {
                     {/* RIGHT IMAGE */}
                     <div className="gardener-home-right">
                         <img
-                            src="/images/gardener-home.jpg"
+                            src="https://images.stockcake.com/public/9/5/3/9535aafe-6182-4f92-87ae-805b92e0b955_large/community-garden-planting-stockcake.jpg"
                             alt="gardener"
                             className="gardener-img"
                         />

@@ -10,7 +10,8 @@ const managerSchema = mongoose.Schema({
     email: { type: String, required: true, unique: true },
     profilePic: { type: String },
     password: { type: String, required: true },
-    Activated: { type: Boolean }
+    Activated: { type: Boolean },
+    token: { type: String }
 })
 
 const Manager = mongoose.model("manager", managerSchema)

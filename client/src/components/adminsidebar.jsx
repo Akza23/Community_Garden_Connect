@@ -28,15 +28,17 @@ function AdminSidebar({ setPage }) {
                             <span>🪴</span> Garden Plots
                         </Link>
                     </li>
-                    <li onClick={() => setPage("managers")}>
-                        <span>🛠️</span> Resources
+                    <li>
+                        <Link to="/adminviewevents">
+                            <span>🛠️</span> Events
+                        </Link>
                     </li>
-                    <li onClick={() => setPage("complaints")}>
+                    {/* <li onClick={() => setPage("complaints")}>
                         <span>⚠️</span> Complaints
                     </li>
                     <li onClick={() => setPage("reports")}>
                         <span>📄</span> Reports
-                    </li>
+                    </li> */}
                 </ul>
             </div>
             <div className="menu-bottom">

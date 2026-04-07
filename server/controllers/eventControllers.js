@@ -3,6 +3,7 @@ const router = express.Router()
 const jwt = require("jsonwebtoken")
 const upload = require("../services/imageservices")
 const Event = require("../models/eventSchema")
+const Register = require("../models/eventregisterSchema")
 
 router.post("/add", upload.single("image"), async (req, res) => {
     const { eventName, eventCategory, description, location, eventDate, eventTime } = req.body
@@ -27,10 +28,14 @@ router.post("/add", upload.single("image"), async (req, res) => {
 router.get("/view", async (req, res) => {
     const token = req.headers.authorization.slice(7)
     const decoded = jwt.verify(token, process.env.JWT_TOKEN)
-    const event = await Event.find({ "managerId": decoded.id }).populate("managerId")
+    const event = await Event.find({ "managerId": decoded.id }).populate("managerId").lean()
     if (event) {
+        const result = await Promise.all(event.map(async (val) => {
+            const count = await Register.countDocuments({ eventId: val._id })
+            return { ...val, count }
+        }))
         res.send({
-            message: "Event view", event
+            message: "Event view", event: result
         })
     }
     else {
@@ -40,10 +45,12 @@ router.get("/view", async (req, res) => {
     }
 })
 
-router.get("/view/:id",async(res,req)=>{
-    const token=re.headers.authorization.slice(7)
-    
-})
+// router.get("/count", async (req, res) => {
+//     const token = req.headers.authorization.slice(7)
+//     const decoded = jwt.verify(token, process.env.JWT_TOKEN)
+//     const count = await Event.countDocuments({ managerId: decoded.id })
+//     res.send({ message: "Count View", count })
+// })
 
 router.put("/edit/:id", upload.single("image"), async (req, res) => {
     try {

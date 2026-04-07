@@ -65,8 +65,8 @@
 }
 
 .form-img img {
-    height: 600px;
-    margin: 40px 30px;
+    height: 500px;
+    margin: 40px 100px;
     position: sticky;
     top: 20px;
 }
@@ -284,6 +284,7 @@
 .gardener-img {
     width: 100%;
     border-radius: 40px;
+    /* height: 500px; */
 }
 
 /* ------------------------ GARDENER PROFILE -------------------------- */
@@ -502,6 +503,157 @@
 
     .form-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ---------------------------------- FORGOT PASSWORD----------------------- */
+
+/* Full page container */
+.gardener-forgot-pass-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #d4fc79, #96e6a1);
+    font-family: Arial, sans-serif;
+}
+
+/* Form box */
+.gardener-forgot-pass {
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 300px;
+}
+
+/* Label */
+.gardener-forgot-pass label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Input field */
+.gardener-forgot-pass input {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* Input focus effect */
+.gardener-forgot-pass input:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.4);
+}
+
+/* Button styling */
+.gardener-forgot-pass button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button hover */
+.gardener-forgot-pass button:hover {
+    background-color: #218838;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .gardener-forgot-pass {
+        padding: 30px 20px;
+        width: 90%;
+    }
+}
+
+/* --------------------------------- RESET PASSWORD ------------------------ */
+
+/* Full page container */
+.gardener-reset-pass-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #d4fc79, #96e6a1);
+    font-family: Arial, sans-serif;
+}
+
+/* Form box */
+.gardener-reset-pass {
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 320px;
+}
+
+/* Labels */
+.gardener-reset-pass label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Input fields */
+.gardener-reset-pass input {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* Focus effect */
+.gardener-reset-pass input:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.4);
+}
+
+/* Button */
+.gardener-reset-pass button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button hover */
+.gardener-reset-pass button:hover {
+    background-color: #218838;
+}
+
+/* Error message */
+.error-text {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .gardener-reset-pass {
+        padding: 30px 20px;
+        width: 90%;
     }
 }
 

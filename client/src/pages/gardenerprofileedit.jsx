@@ -32,7 +32,7 @@ function GardenerProfileEdit() {
             formData.append("mobileNo", details.mobileNo)
             formData.append("district", details.district)
             formData.append("city", details.city)
-            formData.append("skilla", details.skills)
+            formData.append("skills", details.skills)
             formData.append("email", details.email)
             formData.append("profilePic", details.profilePic)
             await instance.put("/gardener/updateprofile", formData)

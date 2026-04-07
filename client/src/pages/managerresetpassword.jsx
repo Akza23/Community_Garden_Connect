@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { useSearchParams } from 'react-router'
+import "../style/manager.css"
 import instance from '../utils/apiClient'
 
-function GardenerResetPassword() {
+function ManagerResetPassword() {
     const [data, setData] = useState({ password: "", cpassword: "" })
     const [error, setError] = useState("")
     const [search] = useSearchParams()
@@ -13,7 +14,7 @@ function GardenerResetPassword() {
     async function reset(e) {
         e.preventDefault()
         if (data.password.trim() !== "" && (data.password == data.cpassword)) {
-            await instance.post("http://localhost:8080/gardener/resetpassword", { token, password: data.password }).then(() => {
+            await instance.post("http://localhost:8080/manager/resetpassword", { token, password: data.password }).then(() => {
                 alert("Password reset successfully")
                 setError("")
             }).catch(() => {
@@ -23,8 +24,8 @@ function GardenerResetPassword() {
     }
     return (
         <>
-            <div className='gardener-reset-pass-container'>
-                <form action="" className='gardener-reset-pass'>
+            <div className='manager-reset-pass-container'>
+                <form action="" className='manager-reset-pass'>
                     <label htmlFor="password">New Password:</label>
                     <input type="password" name='password' onChange={change} />
                     <label htmlFor="cpassword">Confirm Password:</label>
@@ -36,4 +37,4 @@ function GardenerResetPassword() {
     )
 }
 
-export default GardenerResetPassword
+export default ManagerResetPassword

@@ -5,6 +5,7 @@ const adminVerify = require("../middlewares/adminmiddleware")
 const Gardener = require("../models/gardenerSchema")
 const Manager = require("../models/managerSchema")
 const Garden = require("../models/gardenSchema")
+const Event = require("../models/eventSchema")
 
 router.post("/login", async (req, res) => {
     const { email, password } = req.body
@@ -55,6 +56,13 @@ router.patch("/deactivate", adminVerify, async (req, res) => {
     const manager = await Manager.findByIdAndUpdate(managerid, { Activated: false })
     res.send({
         message: "Manager Rejected", manager
+    })
+})
+
+router.get("/viewevents", adminVerify, async (req, res) => {
+    const event = await Event.find()
+    res.send({
+        message: "Events", event
     })
 })
 

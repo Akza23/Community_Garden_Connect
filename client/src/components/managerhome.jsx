@@ -27,7 +27,7 @@ function ManagerHome() {
             <div className="manager-home">
                 {/* HERO SECTION */}
                 <section id="manager-hero">
-                    <img src="/images/manager-main.jpg" className="manager-hero-img" alt="manager" />
+                    <img src="https://gardening.org/wp-content/uploads/2023/11/how-to-start-a-community-garden-in-8-steps-featured.jpg" className="manager-hero-img" alt="manager" />
                     <div className="manager-hero-text">
                         <h1>Hello {manager?.fullName ? manager.fullName : "Manager"} 🌿</h1>
                         <p>
@@ -40,15 +40,15 @@ function ManagerHome() {
                 {/* OPTIONS BELOW */}
                 <div className="manager-options">
                     <div className="manager-box">
-                        <img src="/images/garden.png" alt="garden" />
+                        <img src="https://seedmoney.org/wp-content/uploads/2022/10/community-garden-1024x510.jpg" alt="garden" />
                         <h3>View Gardens</h3>
                     </div>
                     <div className="manager-box">
-                        <img src="/images/gardener.png" alt="gardener" />
+                        <img src="https://foodtank.com/wp-content/uploads/2024/06/Denver-Urban-Gardens-Urban-Garden-Project-food-forests-community-gardens.jpg" alt="gardener" />
                         <h3>Manage Gardeners</h3>
                     </div>
                     <div className="manager-box">
-                        <img src="/images/report.png" alt="report" />
+                        <img src="https://content.ces.ncsu.edu/media/images/IMG_9404_Lucy_Bradley.JPG" alt="report" />
                         <h3>Reports</h3>
                     </div>
                 </div>

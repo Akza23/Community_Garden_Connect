@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router'
 import instance from '../utils/apiClient'
 
 function GardenerForgotPassword() {
+    const Navigate = useNavigate()
     const [data, setData] = useState({ email: "" })
+
     async function forgot(e) {
         e.preventDefault()
         const response = await instance.post("http://localhost:8080/gardener/forgotpassword", data).then(() => {
             alert("Password changed mail sent successfully")
+            Navigate("/gardenerlogin")
         }).catch(() => {
             alert("Error")
         })

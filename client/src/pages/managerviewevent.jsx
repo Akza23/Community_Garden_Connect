@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router'
 import ManagerNavbar from '../components/managernavbar'
 import instance from '../utils/apiClient'
 
 function ManagerViewEvent() {
     const [details, setDetails] = useState([])
     const [count, setCount] = useState(0)
+    const [regcount, setRegcount] = useState()
     async function eventData() {
         const response = await instance.get("/event/view")
         setDetails(response.data.event)
@@ -13,6 +13,14 @@ function ManagerViewEvent() {
     useEffect(() => {
         eventData()
     }, [count])
+
+    // async function registerCount() {
+    //     const res = await instance.get("/event/count")
+    //     setRegcount(res.data.count)
+    // }
+    // useEffect(() => {
+    //     registerCount()
+    // }, [])
 
     async function remove(id) {
         try {
@@ -37,9 +45,10 @@ function ManagerViewEvent() {
                             <p><strong>Event Category: </strong>{item.eventCategory}</p>
                             <p><strong>Description: </strong>{item.description}</p>
                             <p><strong>Location: </strong>{item.location}</p>
+                            <p><strong>Registered Gardeners: </strong>{item.count}</p>
                             <p><strong>Date & Time: </strong>{item.eventDate}, {item.eventTime}</p>
                             <div className='edit-delete-button'>
-                                <button className='btn btn-warning'><Link to={"/editevent/" + item._id}>EDIT</Link></button>
+                                {/* <button className='btn btn-warning'><Link to={"/editevent/" + item._id}>EDIT</Link></button> */}
                                 <button className='btn btn-danger' onClick={() => remove(item._id)}>DELETE</button>
                             </div>
                         </div>

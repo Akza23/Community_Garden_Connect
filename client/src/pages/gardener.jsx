@@ -141,7 +141,7 @@ function Gardener() {
         <>
             <Navbar />
             <div className="form-img">
-                <img src="https://media.istockphoto.com/id/1268196717/vector/gardening-tools-and-plants-in-the-garden.jpg?s=612x612&w=0&k=20&c=0g9MBn-iYbJHZo51KgIyyz0tXHmXPP2u6ZRJlxnSWaA=" />
+                <img src="https://img.freepik.com/free-vector/flat-illustration-people-taking-care-plants_23-2148980464.jpg?semt=ais_hybrid&w=740&q=80" />
                 <div className="container">
                     <form action="" className="form">
                         <h2>Registration</h2>

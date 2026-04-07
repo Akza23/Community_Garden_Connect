@@ -6,6 +6,9 @@ const jwt = require("jsonwebtoken")
 const Manager = require("../models/managerSchema")
 const Gardener = require("../models/gardenerSchema")
 const Chat = require("../models/chatSchema")
+const transport = require("../services/emailservices")
+const { randomBytes } = require("node:crypto")
+const { register } = require("node:module")
 
 router.post("/register", upload.single("profilePic"), async (req, res) => {
     const { fullName, address, contact, gender, district, city, pincode, email, password } = req.body
@@ -34,7 +37,7 @@ router.post("/login", async (req, res) => {
     if (!manager) {
         res.status(404).send({
             message: "Invalid Email"
-        }) 
+        })
     }
     else {
         if (!manager.Activated) {
@@ -88,6 +91,46 @@ router.put("/updateprofile", upload.single("profilePic"), async (req, res) => {
         res.status(403).send({
             message: "Not Authorised"
         })
+    }
+})
+
+router.post("/forgotpassword", async (req, res) => {
+    const emailId = req.body.email
+    const manager = await Manager.findOne({ email: emailId })
+    console.log("Manager found:", manager); 
+    if (!manager) {
+        res.status(400).send({
+            message: "No such user"
+        })
+    }
+    else {
+        const token = Buffer.from(randomBytes(56)).toString('hex');
+        manager.token = token
+        await manager.save()
+        await transport.sendMail({
+            from: `"manager admin"<${process.env.GMAIL_ADDRESS}>`,
+            to: manager.email,
+            subject: "Password reset email",
+            html: `Here is your password reset link: <a href="http://localhost:5173/managerresetpass?token=${token}">link</a>`
+        })
+        res.send({
+            message: "Email Sent"
+        })
+    }
+})
+
+router.post("/resetpassword", async (req, res) => {
+    const { password, token } = req.body
+    const manager = await Manager.findOne({ token })
+    if (manager) {
+        const hashPassword = bcrypt.hashSync(password, 10)
+        manager.password = hashPassword
+        manager.token = null
+        await manager.save()
+        res.send("Password Reset")
+    }
+    else {
+        res.status(400).send("Manager not found")
     }
 })
 

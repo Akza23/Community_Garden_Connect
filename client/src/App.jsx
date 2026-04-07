@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Route, Routes } from "react-router";
-import { Toaster, toast } from 'sonner';
+import { Toaster } from 'sonner';
 import "./App.css";
 import AdminHome from "./components/adminhome";
 import GardenerHome from "./components/gardenerhome";
@@ -11,6 +11,7 @@ import AddEvent from "./pages/addevent";
 import AddGarden from "./pages/addgarden";
 import AddTask from "./pages/addtask";
 import AdminLogin from "./pages/adminlogin";
+import AdminViewEvents from "./pages/adminviewevents";
 import AdminViewGarden from "./pages/adminviewgarden";
 import AdminViewGardener from "./pages/adminviewgardener";
 import AdminViewManager from "./pages/adminviewmanager";
@@ -29,9 +30,11 @@ import GardenerViewGarden from "./pages/gardenerviewgarden";
 import GardenerViewTask from "./pages/gardenerviewtask";
 import Index from "./pages/index";
 import Manager from "./pages/manager";
+import ManagerForgotPassword from "./pages/managerforgotpassword";
 import ManagerLogin from "./pages/managerlogin";
 import ManagerProfile from "./pages/managerprofile";
 import ManagerProfileEdit from "./pages/managerprofileedit";
+import ManagerResetPassword from "./pages/managerresetpassword";
 import ManagerViewChat from "./pages/managerviewchat";
 import ManagerViewEvent from "./pages/managerviewevent";
 import ManagerViewGarden from "./pages/managerviewgarden";
@@ -69,6 +72,8 @@ function App() {
 				<Route path="/manager" element={<Manager />} />
 				<Route path="/managerlogin" element={<ManagerLogin />} />
 				<Route path="/managerhome" element={<ManagerHome />} />
+				<Route path="/managerforgotpass" element={<ManagerForgotPassword />} />
+				<Route path="/managerresetpass" element={<ManagerResetPassword />} />
 				<Route path="/managerprofile" element={<ManagerProfile />} />
 				<Route path="/managerprofileedit" element={<ManagerProfileEdit />} />
 				<Route path="/addgarden" element={<AddGarden />} />
@@ -89,6 +94,7 @@ function App() {
 				<Route path="/adminviewgardeners" element={<AdminViewGardener />} />
 				<Route path="/adminviewmanagers" element={<AdminViewManager />} />
 				<Route path="/adminviewgardens" element={<AdminViewGarden />} />
+				<Route path="/adminviewevents" element={<AdminViewEvents />} />
 			</Routes>
 		</>
 	)
