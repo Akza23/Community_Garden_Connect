@@ -7,7 +7,6 @@ function Navbar() {
                 <ul id='item'>
                     <li className='nav-item'><Link to='/'>Home</Link></li>
                     <li className='nav-item'><Link to='/about'>About</Link></li>
-                    <li className='nav-item'><Link to='/contact'>Contact</Link></li>
                     <li className='nav-item dropdown'>
                         <Link to='' className='dropdown-toggle' role='button' data-bs-toggle="dropdown" aria-expanded="false">Sign in</Link>
                         <ul className='dropdown-menu'>
